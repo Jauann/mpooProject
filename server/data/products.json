@@ -1,0 +1,14 @@
+{
+    "data": {
+        "a49e7a75-161f-4fb6-ab5e-eef71bff6bfc": {
+            "name": "Feijao",
+            "price": 6.0,
+            "quantity": 15
+        },
+        "0248f2d2-73ec-4455-8524-e482d1caa679": {
+            "name": "Arroz",
+            "price": 7.0,
+            "quantity": 3
+        }
+    }
+}
