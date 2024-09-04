@@ -1,19 +1,17 @@
-import os
-import json
-from core.config import Config
+from api.model.product import ProductOut
+from api.model.product import ProductModel
+from data.database import DatabaseProducts
+
 
 class StockController:
-    def __init__(self):
-        self.json_path = os.path.join(Config.PROJECT_FOLDER, Config.DATA_FOLDER, Config.DATA_FILE)
+    def get(self) -> list[ProductOut]:
+        return DatabaseProducts.get()
 
-    def get_all(self) -> list[dict]:
-        with open(self.json_path, 'r') as file:
-            json_data = json.load(file)
-        data_list = [{"id": key, **value} for key, value in json_data["data"].items()]
-        return data_list
+    def create(self, products: list[ProductModel]) -> list[ProductOut]:
+        new_products = DatabaseProducts.create(products)
+        if isinstance(new_products, list):
+            return new_products
+        return []
 
-    def create(self):
-        pass
-
-    def delete(self):
-        pass
+    def remove(self):
+        return DatabaseProducts.delete()

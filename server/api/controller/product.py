@@ -1,53 +1,17 @@
-import os
-import json
-import uuid
 from api.model.product import ProductModel
-from core.config import Config
+from api.model.product import ProductOut
+from data.database import DatabaseProducts
+
 
 class ProductController:
-    def __init__(self):
-        self.json_path = os.path.join(Config.PROJECT_FOLDER, Config.DATA_FOLDER, Config.DATA_FILE)
+    def search_by_id(self, id: str) -> ProductOut | None:
+        return DatabaseProducts.get_by_id(id=id)
 
-    def _write(self, data: dict) -> bool:
-        with open(self.json_path, 'w') as file:
-            json.dump(data, file, indent=4)
-        return True
+    def create(self, product: ProductModel) -> ProductOut | list[ProductOut]:
+        return DatabaseProducts.create(product)
 
-    def search_by_id(self, id: str) -> dict | None:
-        with open(self.json_path, 'r') as file:
-            json_data = json.load(file)
-        return json_data['data'].get(id)
-
-    def create(self, product: ProductModel) -> dict:
-        with open(self.json_path, 'r') as file:
-            json_data = json.load(file)
-        id = str(uuid.uuid4())
-        json_data['data'][id] =  {
-            'name': product.name,
-            'price': product.price,
-            'quantity': product.quantity,
-        }
-        self._write(data=json_data)
-        return json_data['data'][id]
-        
-    def update(self, id: str, product: ProductModel) -> bool:
-        with open(self.json_path, 'r') as file:
-             json_data = json.load(file)
-        if id in json_data['data']: 
-            json_data['data'][id] = {
-                'name': product.name,
-                'price': product.price,
-                'quantity': product.quantity,
-            }
-            self._write(data=json_data)
-            return json_data['data'][id]
-        return None
+    def update(self, id: str, product: ProductModel) -> ProductOut | None:
+        return DatabaseProducts.update(id=id, product=product)
 
     def remove(self, id: str) -> bool:
-        with open(self.json_path, 'r') as file:
-            json_data = json.load(file)
-        if id in json_data['data']:
-            del json_data['data'][id]
-            return self._write(data=json_data)
-        else:
-            return False
+        return DatabaseProducts.delete_by_id(id=id)
