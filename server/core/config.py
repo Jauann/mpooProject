@@ -1,4 +1,3 @@
-
 class Config:
     ORIGIN = 'http://localhost:5000'
     HOST = 'localhost'
@@ -8,4 +7,5 @@ class Config:
     LOG_LEVEL = 'info'
     PROJECT_FOLDER = ''
     DATA_FOLDER = 'data'
-    DATA_FILE = 'products.json'
+    PRODUCTS_FILE = 'products.json'
+    PURCHASES_FILE = 'purchases.json'

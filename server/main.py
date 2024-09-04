@@ -1,13 +1,12 @@
 import os
-import json
+
 import uvicorn
 from core.config import Config
 
 Config.PROJECT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
 if __name__ == '__main__':
-    uvicorn.run(app='app:app', host=Config.HOST, port=Config.PORT,
-                log_level=Config.LOG_LEVEL, reload=Config.RELOAD)
+    uvicorn.run(app='app:app', host=Config.HOST, port=Config.PORT, log_level=Config.LOG_LEVEL, reload=Config.RELOAD)
 
 # from services.inventory_service import ServicoEstoque
 # from services.checkout_service import ServicoCheckout

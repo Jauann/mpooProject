@@ -1,9 +1,11 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from pydantic import Field
+
 
 class ProductModel(BaseModel):
     name: str
-    price: float = Field(gt=0, description="The price must be greater than zero")
-    quantity: int = Field(gt=0, description="The quantity must be greater than zero")
+    price: float = Field(gt=0, description='The price must be greater than zero')
+    quantity: int = Field(gt=0, description='The quantity must be greater than zero')
 
 class ProductOut(ProductModel):
     id: str

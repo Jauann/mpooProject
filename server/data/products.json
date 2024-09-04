@@ -1,14 +1,19 @@
 {
     "data": {
-        "a49e7a75-161f-4fb6-ab5e-eef71bff6bfc": {
-            "name": "Feijao",
-            "price": 6.0,
-            "quantity": 15
-        },
-        "0248f2d2-73ec-4455-8524-e482d1caa679": {
+        "82d2423b-8a0c-4fa6-b26d-5b19c0aaceeb": {
             "name": "Arroz",
-            "price": 7.0,
-            "quantity": 3
+            "price": 8.49,
+            "quantity": 14
+        },
+        "6a8afba3-5e5f-4a10-84d4-eeefbd6ceac7": {
+            "name": "Feijao",
+            "price": 7.39,
+            "quantity": 11
+        },
+        "c0ebe564-6198-48fb-8b4f-64cfe9b91a97": {
+            "name": "Macarrao",
+            "price": 5.2,
+            "quantity": 9
         }
     }
 }
