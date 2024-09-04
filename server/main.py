@@ -11,7 +11,7 @@ if __name__ == '__main__':
 # from services.inventory_service import ServicoEstoque
 # from services.checkout_service import ServicoCheckout
 # from models.product import Produto
-# from models.customer import Cliente
+# from models.customer import Cliente/
 # from models.order import Pedido
 #
 # def gerar_nota_fiscal(pedido):
