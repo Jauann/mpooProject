@@ -1,4 +1,17 @@
 {
-  "data": {
-  }
+    "data": {
+        "567b73b7-a2e0-41bc-a7bc-19f6d2f5f514": {
+            "client_id": "09f8dad1-c65e-47bc-ae08-0153f7a88217",
+            "date": "2024-09-07T00:37:31.164114+00:00",
+            "orders": [
+                {
+                    "product_id": "82d2423b-8a0c-4fa6-b26d-5b19c0aaceeb",
+                    "quantity": 1,
+                    "product_name": "Arroz",
+                    "product_price": 8.49
+                }
+            ],
+            "total_price": 8.49
+        }
+    }
 }

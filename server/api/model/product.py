@@ -10,18 +10,6 @@ class ProductModel(BaseModel):
 class ProductOut(ProductModel):
     id: str
 
-# class Produto:
-#     def __init__(self, id_produto, nome, preco, estoque):
-#         self.id_produto = id_produto
-#         self.nome = nome
-#         self.preco = preco
-#         self.estoque = estoque
-#
-#
-#     def __str__(self):
-#         return f"Produto: {self.nome}{ self.estoque}"
-#
-#     def reduzir_estoque(self, quantidade):
-#         if quantidade > self.estoque:
-#             raise ValueError("Quantidade insuficiente em estoque.")
-#         self.estoque -= quantidade
+    def model_dump(self, *args, **kwargs):
+        original_dict = super().model_dump(*args, **kwargs)
+        return {'id': self.id, **original_dict}

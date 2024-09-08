@@ -1,6 +1,6 @@
-from api.model.product import ProductOut
 from api.model.product import ProductModel
-from data.database import DatabaseProducts
+from api.model.product import ProductOut
+from data.database_products import DatabaseProducts
 
 
 class StockController:
@@ -13,5 +13,5 @@ class StockController:
             return new_products
         return []
 
-    def remove(self):
+    def remove(self) -> bool:
         return DatabaseProducts.delete()
