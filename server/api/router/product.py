@@ -27,8 +27,11 @@ async def get(id: str):
 
 @router.post('/', response_model=ProductOut, status_code=status.HTTP_201_CREATED)
 async def create(product: Annotated[ProductModel, Body(embed=True)]):
-    new_product = product_controller.create(product)
-    return ResponseJSON.successful(status_code=status.HTTP_201_CREATED, data=new_product)
+    try:
+        new_product = product_controller.create(product)
+        return ResponseJSON.successful(status_code=status.HTTP_201_CREATED, data=new_product)
+    except Exception:
+        return ResponseJSON.failure(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, message="An unexpected error occurred.")
 
 
 @router.put('/{id}', response_model=ProductOut, status_code=status.HTTP_200_OK)
@@ -48,3 +51,5 @@ async def delete(id: str):
         product_controller.remove(id)
     except ErrorNotFound as e:
         return ResponseJSON.failure(status_code=e.error_code, message=e.message)
+    except Exception:
+        return ResponseJSON.failure(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, message="An unexpected error occurred.")

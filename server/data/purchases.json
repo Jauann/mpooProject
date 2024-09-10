@@ -12,6 +12,25 @@
                 }
             ],
             "total_price": 8.49
+        },
+        "2a948279-ea2c-471d-8362-25f9dd092f60": {
+            "client_id": "6b84118b-0d30-4080-83c5-558389911a9f",
+            "date": "2024-09-18T16:06:52.572283+00:00",
+            "orders": [
+                {
+                    "product_id": "6a8afba3-5e5f-4a10-84d4-eeefbd6ceac7",
+                    "quantity": 1,
+                    "product_name": "Feijao",
+                    "product_price": 7.39
+                },
+                {
+                    "product_id": "82d2423b-8a0c-4fa6-b26d-5b19c0aaceeb",
+                    "quantity": 1,
+                    "product_name": "Arroz",
+                    "product_price": 8.49
+                }
+            ],
+            "total_price": 15.879999999999999
         }
     }
 }
