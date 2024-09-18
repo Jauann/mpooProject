@@ -22,7 +22,7 @@ class StockView(View):
         self.controller = StockController()
 
     def show_product(self, product: dict):
-        print(f'ID: {product['id']} \n| Nome: {product['name']} \n| Preço: {product['price']} \n| Quantidade: {product['quantity']}\n')
+        print(f'ID: {product["id"]} \n| Nome: {product["name"]} \n| Preço: {product["price"]} \n| Quantidade: {product["quantity"]}\n')
 
     def show_products(self):
         try:
