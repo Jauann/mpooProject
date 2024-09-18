@@ -31,6 +31,19 @@
                 }
             ],
             "total_price": 15.879999999999999
+        },
+        "97eb12b6-3d85-403e-b3c1-079a05dcd8a0": {
+            "client_id": "68861e4a-adce-4d5d-b50f-bf59b610c3cd",
+            "date": "2024-09-18T17:52:25.223133+00:00",
+            "orders": [
+                {
+                    "product_id": "c0ebe564-6198-48fb-8b4f-64cfe9b91a97",
+                    "quantity": 3,
+                    "product_name": "Macarrao",
+                    "product_price": 5.2
+                }
+            ],
+            "total_price": 15.600000000000001
         }
     }
 }
