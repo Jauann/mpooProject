@@ -22,7 +22,7 @@ class StockView(View):
             if response.status_code == 200:
                 print('———————————————————————— [Lista de Produtos] ————————————————————————')
                 for p in data['data']:
-                    print(f'ID: {p['id']} \n| Nome: {p['name']} \n| Preço: {p['price']} \n| Quantidade: {p['quantity']}\n')
+                    print(f'ID: {p["id"]} \n| Nome: {p["name"]} \n| Preço: {p["price"]} \n| Quantidade: {p["quantity"]}\n')
             else:
                 self.message_error(message=data['message'])
         except Exception as e:
