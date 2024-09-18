@@ -26,7 +26,7 @@ async def get():
 async def create(products: Annotated[list[ProductModel], Body(embed=True)]):
     try:
         data = stock_controller.create(products=products)
-        return ResponseJSON.successful(status_code=status.HTTP_200_OK, data=data)
+        return ResponseJSON.successful(status_code=status.HTTP_201_CREATED, data=data)
     except Exception:
         return ResponseJSON.failure(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, message="An unexpected error occurred.")
 

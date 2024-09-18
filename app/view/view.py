@@ -9,7 +9,7 @@ class View:
         self.title: str = title
 
     def clear(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
+        os.system('cls||clear')
 
     def show_spinner(self, msg: str):
         spinner = ['|', '/', '-', '\\']

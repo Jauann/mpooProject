@@ -9,14 +9,14 @@ class PurchaseView(View):
         self.controller = PurchaseController()
 
     def show_purchase_history(self, data: dict):
-        print(f'ID da compra: {data["id"]}')
-        print(f'Cliente: {data["client_id"]}')
+        print(f'ID da compra: {data['id']}')
+        print(f'Cliente: {data['client_id']}')
         print(f'Pedidos: ', end='')
-        [print(f' \n Nome: {p["product_name"]}\n Preço: R${float(p["product_price"]):.2f}\n Quantidade: {p["quantity"]}') for p in data['orders']]
+        [print(f' \n Nome: {p['product_name']}\n Preço: R${float(p['product_price']):.2f}\n Quantidade: {p['quantity']}') for p in data['orders']]
         date_obj = datetime.fromisoformat(data['date'])
         print(f'Data: {date_obj.date()} às {date_obj.time().strftime("%H:%M:%S")}')
         self.draw_line()
-        print(f'total R$ {data["total_price"]}\n')
+        print(f'total R$ {data['total_price']}\n')
 
     def render(self):
         super().render()

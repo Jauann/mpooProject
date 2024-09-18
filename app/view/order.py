@@ -31,10 +31,15 @@ class OrderView(View):
             response = self.controller.post(data=products)
             data = response.json()
             if response.status_code == 201:
-                print('\n————————————————————————[ Comprovante de compra ]————————————————————————')
+                print('\n————————————————————————[ Comprovante de Compra ]————————————————————————')
                 self.history_view.show_purchase_history(data=data['data'])
                 print('Tenha um bom dia!')
+            elif response.status_code == 422:
+                self.message_error(message=data['detail'][0]['msg'])
+            elif response.status_code == 404:
+                self.message_error(message=data['message'])
             else:
-                self.message_error(message='Não foi possível efetuar a operação...')
+                raise Exception
         except:
             self.message_error(message='Não foi possível efetuar a operação...')
+

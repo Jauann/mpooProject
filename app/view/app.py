@@ -5,12 +5,17 @@ from view.view import View
 
 
 class AppView(View):
-    MIN_OPT = 1
-    MAX_OPT = 4
-    OPT_1 = ' [1] — Manusear estoque 📦'
-    OPT_2 = ' [2] — Realizar venda 🛒'
-    OPT_3 = ' [3] — Exibir histórico de vendas 📝'
-    OPT_4 = ' [4] — Sair 👋'
+    OPT_STOCK = 1
+    OPT_BUY = 2
+    OPT_HISTORY = 3
+    OPT_EXIT = 4
+    MIN_OPT = OPT_STOCK
+    MAX_OPT = OPT_EXIT
+
+    MSG_STOCK = ' [1] — Manusear estoque 📦'
+    MSG_BUY = ' [2] — Realizar venda 🛒'
+    MSG_HISTORY = ' [3] — Exibir histórico de vendas 📝'
+    MSG_EXIT = ' [4] — Sair 👋'
 
     def __init__(self, title: str = 'menu') -> None:
         super().__init__(title)
@@ -22,19 +27,19 @@ class AppView(View):
         self.clear()
         while True:
             super().render()
-            print(self.OPT_1)
-            print(self.OPT_2)
-            print(self.OPT_3)
-            print(self.OPT_4)
+            print(self.MSG_STOCK)
+            print(self.MSG_BUY)
+            print(self.MSG_HISTORY)
+            print(self.MSG_EXIT)
             opt = self.menu_select_option(
                 max_opt=self.MAX_OPT, min_opt=self.MIN_OPT)
 
-            if opt == 1:
+            if opt == self.OPT_STOCK:
                 self.stock.render()
-            elif opt == 2:
+            elif opt == self.OPT_BUY:
                 self.order.render()
                 self.enter_to_continue()
-            elif opt == 3:
+            elif opt == self.OPT_HISTORY:
                 self.show_spinner(msg='Carrendo histórico de vendas')
                 self.purchase.render()
                 self.enter_to_continue()
